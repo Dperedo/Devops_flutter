@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flutter-front-deployment
+spec:
+  selector:
+   matchLabels:
+    app: flutter-front
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: flutter-front
+    spec:
+      containers:
+        - name: kflutter
+          image: diegoperedo/flutter_ejemplo:flutterpush
+          ports:
+            - containerPort: 80
+              name: flutterport
